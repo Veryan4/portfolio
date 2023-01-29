@@ -42,25 +42,23 @@ export const styles = css`
 
     .socials, .stacks {
         display:flex;
+        flex-wrap: wrap;
         padding-left: 4px;
+        padding-top: 1rem;
+        gap: 1.5rem;
     }
     .social, .stack {
         display: flex;
         flex-direction: column;
         align-items: center;
         color: white;
-        margin-right: 1rem;
-        margin-top: 1rem;
         mix-blend-mode: difference;
+        height: 5rem;
+        width: 5rem;
+        filter: brightness(100) saturate(0%);
     }
 
-    .stack {
-        height: 3rem;
-        width: 3rem;
-        filter: brightness(100) saturate(0%);
-        font-size: 12px;
-    }
-    .stack svg {
+    .social svg, .stack svg {
         margin-bottom: 0.5rem;
     }
 
@@ -73,25 +71,10 @@ export const styles = css`
         filter: invert(100%);
     }
 
-    .linkedin {
-        background-image: url("/linkedin.png");
-    }
-    .medium {
-        background-image: url("/medium.svg");
-    }
-    .github {
-        background-image: url("/github.png");
-    }
-    .gitlab {
-        background-image: url("/gitlab.png");
-    }
-    .email {
-        background-image: url("/email.svg");
-    }
-
-
-    .card-wrap {
-        padding-bottom: 1rem;
+    .cards-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     .card {
@@ -99,26 +82,21 @@ export const styles = css`
         padding: 1rem;
         background: rgba(211,211,211, 0.1);
         border-radius: 4px;
-        width: 220px;
+        width: 40%;
         color: var(--primary-color);
         cursor: pointer;
     }
 
-    h4 {
+    .card-description {
+        font-family: var(--font-family-2);
+        font-size: 1.2rem;
+        padding-top: 1rem;
         font-weight: 500;
     }
-
-    .card-title {
-        font-size: 18px;
-        font-weight: 600;
-        font-family: "Source Sans Pro", sans-serif;
-    }
-    .card-description {
-        font-family: "Open Sans", sans-serif;
-        padding-top: 5px;
-    }
     .card-image {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 2px 2px 0 0;
         position: relative;
         left: 0;
@@ -141,5 +119,21 @@ export const styles = css`
         cursor: pointer;
         z-index: 999;
         margin-bottom: 0.5rem;
+    }
+    .content{
+        font-family: var(--font-family-2);
+        font-size:1.2rem;
+        height:50vh;
+        overflow-y: scroll;
+    }
+    .button {
+        margin-top: 1rem;
+        background-color: white;
+        color: black;
+        border-radius: 4px;
+        padding: 0.5rem;
+        width: fit-content;
+        cursor: pointer;
+        font-family: var(--font-family);
     }
 `;

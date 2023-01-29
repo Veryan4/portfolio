@@ -1,3 +1,19 @@
+@font-face{
+  font-family:tintin;
+  font-style:normal;
+  font-weight:700;
+  src:local('Tintin'),
+  url('/tintin.woff2') format('woff2')
+}
+
+@font-face{
+  font-family:tintin2;
+  font-style:normal;
+  font-weight:700;
+  src:local('Tintin2'),
+  url('/tintin2.woff2') format('woff2')
+}
+
 :root {
   --theme-color: #296954;
   --primary-color: white;
@@ -12,7 +28,8 @@
   --toast-border-radius: 0.5rem;
   --toast-offset: 100px;
   /* Fonts */
-  --font-family: "Roboto Sans", sans-serif;
+  --font-family: 'Tintin', sans-serif;
+  --font-family-2: 'Tintin2', sans-serif;
   --font-size: 18px;
   --font-weight: 400;
   --font-weight-bold: 700;
