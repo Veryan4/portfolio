@@ -125,6 +125,7 @@ export const styles = css`
         font-size:1.2rem;
         height:50vh;
         overflow-y: scroll;
+        overflow-x: hidden;
     }
     .button {
         margin-top: 1rem;
@@ -135,5 +136,14 @@ export const styles = css`
         width: fit-content;
         cursor: pointer;
         font-family: var(--font-family);
+    }
+
+    @media only screen and (max-width: 752px) {
+        .card-image.truba {
+            display: unset;
+        }
+        .tab {
+            font-size: 1.3rem;
+        }
     }
 `;

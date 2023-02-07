@@ -27,6 +27,7 @@ class HomeComponent extends LitElement {
       </div>
 
       <div class="img-wrap">
+        <div class="donut"></div>
         <img
           class="figure"
           @click=${(e: Event) => e.preventDefault()}

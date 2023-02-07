@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
-import { routerService, translateService } from "./services";
-import { RouteController, ToastController } from "./controllers";
+import { customElement } from "lit/decorators.js";
+import { RouteController, ToastController } from "@veryan/lit-spa";
+import { routes } from "./app.routes";
 
 @customElement("my-app")
 class Portfolio extends LitElement {
@@ -20,11 +20,8 @@ class Portfolio extends LitElement {
     `,
   ];
 
-  private router = new RouteController(this);
+  private router = new RouteController(this, routes);
   private toaster = new ToastController(this);
-
-  @property({ type: Boolean })
-  hasLoadedTranslations: boolean;
 
   constructor() {
     super();
@@ -35,24 +32,5 @@ class Portfolio extends LitElement {
       <div class="main">${this.router.navigation()}</div>
       ${this.toaster.wait()}
     `;
-  }
-
-  shouldUpdate(
-    changedProperties: Map<string | number | symbol, unknown>
-  ): boolean {
-    return this.hasLoadedTranslations && super.shouldUpdate(changedProperties);
-  }
-
-  async connectedCallback() {
-    super.connectedCallback();
-
-    window.dispatchEvent(new CustomEvent(routerService.ROUTE_EVENT));
-    window.onpopstate = () => {
-      window.dispatchEvent(new CustomEvent(routerService.ROUTE_EVENT));
-    };
-
-    !this.hasLoadedTranslations &&
-      (await translateService.initTranslateLanguage());
-    this.hasLoadedTranslations = true;
   }
 }

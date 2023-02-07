@@ -58,9 +58,49 @@ export const styles = css`
     left:10vw;
   }
 
+  .donut {
+    position: relative;
+    font-size: 2em;
+    border-radius: 50%;
+    width: 25vw;
+    height: 25vw;
+    background-color: white; 
+    mix-blend-mode: difference;
+    bottom:11vw;
+  } 
+
+  .donut::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: black; 
+    content: "";
+    width: 20vw;
+    height: 20vw;
+  }
+
+  ::selection {
+    color: black;
+    background: white;
+  }
+
+
   @media only screen and (max-width: 752px) {
+    .background {
+      top:-50vh;
+      left:-60vh;
+      height:200vh;
+      width:200vh;
+    }
     h1 {
       margin-top: 0;
+      position: fixed;
+      left: 1rem;
+    }
+    .img-wrap{
+      display: none;
     }
     img {
       width: auto;
@@ -68,10 +108,10 @@ export const styles = css`
     }
     .wrap {
       top: 35%;
-      left: unset;
+      left: 1rem;
     }
     .content {
-      max-width: 100vw;
+      max-width: 95vw;
     }
   }
 `;
