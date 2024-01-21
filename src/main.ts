@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement } from "lit/decorators.js";
-import { RouteController, ToastController } from "@veryan/lit-spa";
+import { RouteController } from "@veryan/lit-spa";
 import { routes } from "./app.routes";
 
 @customElement("my-app")
@@ -21,7 +21,6 @@ class Portfolio extends LitElement {
   ];
 
   private router = new RouteController(this, routes);
-  private toaster = new ToastController(this);
 
   constructor() {
     super();
@@ -30,7 +29,6 @@ class Portfolio extends LitElement {
   render() {
     return html`
       <div class="main">${this.router.navigation()}</div>
-      ${this.toaster.wait()}
     `;
   }
 }
