@@ -149,7 +149,7 @@ class TabsComponent extends LitElement {
                 </div>
               </div>
 
-              <div class="card" @click=${() => window.open("https://d-rummy.com")}>
+              <div class="card" @click=${() => window.open("https://rummy.veryan.ca")}>
                 <div
                   class="card-image"
                   style='background-image: url("/d-rummy-logo.png");'
