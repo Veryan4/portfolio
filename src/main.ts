@@ -1,6 +1,6 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css, PropertyValueMap } from "lit";
 import { customElement } from "lit/decorators.js";
-import { RouteController } from "@veryan/lit-spa";
+import { RouteController, TranslationController } from "@veryan/lit-spa";
 import { routes } from "./app.routes";
 
 @customElement("my-app")
@@ -21,6 +21,9 @@ class Portfolio extends LitElement {
   ];
 
   private router = new RouteController(this, routes);
+  private i18n = new TranslationController(this, {
+    supportedLanguages: ["en", "fr"],
+  });
 
   constructor() {
     super();
@@ -30,5 +33,11 @@ class Portfolio extends LitElement {
     return html`
       <div class="main">${this.router.navigation()}</div>
     `;
+  }
+
+  protected shouldUpdate(
+    _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>,
+  ): boolean {
+    return this.i18n.hasLoadedTranslations;
   }
 }
