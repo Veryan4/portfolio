@@ -47,11 +47,22 @@ class TabsComponent extends LitElement {
 
           ${this.selectedTab == Tab.experience ? html`
               <div class="experience">
+                  <div class="experience-title" @click=${() => this.toggleExperience("nbc-2")}>IT ASSET MANAGER</div>
+                  <div class="employer" @click=${() => this.toggleExperience("nbc-2")}>National Bank of Canada | Nov 2023 - Present</div>
+                  ${this.selectedExperience == "nbc-2" ? html`
+                    <ul class="responsibilities">
+                        <li>Managing 15 people across 2 engineering teams.</li>
+                        <li>Being responsible for the delivery, quality, and stability of the product.</li>
+                    </ul>
+                  `: ""}
+              </div>
+
+              <div class="experience">
                   <div class="experience-title" @click=${() => this.toggleExperience("nbc")}>SENIOR SOFTWARE DEVELOPER</div>
-                  <div class="employer" @click=${() => this.toggleExperience("nbc")}>National Bank of Canada | Aug 2022 - Present</div>
+                  <div class="employer" @click=${() => this.toggleExperience("nbc")}>National Bank of Canada | Aug 2022 - Nov 2023</div>
                   ${this.selectedExperience == "nbc" ? html`
                     <ul class="responsibilities">
-                        <li>Delivering new business capabilities</li>
+                        <li>Delivering new business capabilities in a micro front-end architecture.</li>
                     </ul>
                   `: ""}
               </div>
@@ -62,7 +73,7 @@ class TabsComponent extends LitElement {
                   ${this.selectedExperience == "stradigi" ? html`
                     <ul class="responsibilities">
                         <li>Maintaining and upgrading a custom framework for rendering statistical graphs.</li>
-                        <li>Training junior developers</li>
+                        <li>Training junior developers.</li>
                     </ul>
                   `: ""}
               </div>
